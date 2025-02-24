@@ -40,7 +40,7 @@ const startGame = () => {
 const quit = () => {
   show("home-screen");
   hide("play-ground");
-  life = 10;
+  life = 100;
   level = 1;
   point = 0;
   rangeMax = 10;
