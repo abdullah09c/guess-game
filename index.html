@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5.0.0-beta.7/daisyui.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Document</title>
+    <style>
+      .main-screen {
+        transition: all 1s;
+      }
+      .main-screen:hover {
+        background-color: #323131bb;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="my-3">
+      <nav class="w-11/12 mx-auto rounded-xl bg-neutral glass">
+        <div class="navbar text-neutral-content justify-between flex-col gap-5">
+          <button class="text-xl animate-pulse flex items-center">
+            <img
+              class="w-10"
+              src="https://img.icons8.com/?size=96&id=Kmys8eVrwnVU&format=png"
+              alt=""
+            />
+            <span class="">Guess Number</span>
+          </button>
+
+          <div>
+            <div class="badge badge-lg text-xl font-bold">
+              <i class="fa-solid fa-heart text-red-500"></i>
+              <span id="life">100</span>
+            </div>
+            <div class="badge badge-lg text-xl font-bold">
+              <i class="fa-solid fa-trophy text-yellow-500"></i>
+              <span id="point">0</span>
+            </div>
+
+            <div class="badge badge-lg text-xl font-bold">
+              <i class="fa-solid fa-layer-group text-blue-400"></i>
+              <span id="level">1</span>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main id="home-screen">
+      <marquee behavior="alternate" direction="right" class="py-10 absolute">
+        <img
+          class="animate-bounce"
+          src="https://img.icons8.com/?size=96&id=Kmys8eVrwnVU&format=png"
+          alt=""
+        />
+      </marquee>
+      <div class="hero min-h-screen">
+        <div class="hero-content text-center items-center justify-center">
+          <div
+            class="relative z-10 max-w-2xl bg-[#dddddd3d] shadow-lg p-5 rounded-lg backdrop-blur main-screen"
+          >
+            <h1 class="text-4xl font-bold mb-3">Let's Test Your Guess</h1>
+            <h1 class="text-xl font-bold text-red-500 mb-5">How to play?</h1>
+            <ul class="list-disc text-left *:mb-3">
+              <li class="list-inside">
+                The game will generate a random number within a specific range
+                (e.g., 1 to 100).
+              </li>
+              <li class="list-inside">
+                You have to enter a number and submit your guess.
+              </li>
+              <li class="list-inside">
+                If your guess is too low, the game will tell you: "Too low! Try
+                a higher number."
+              </li>
+              <li class="list-inside">
+                If your guess is too high, the game will say: "Too high! Try a
+                lower number."
+              </li>
+              <li class="list-inside">
+                If your guess is correct Congratulations! you can play the next
+                level.
+              </li>
+              <li class="list-inside">
+                for each level you have 10 life. You will loss 1 life for each
+                incorrect guess.
+              </li>
+            </ul>
+            <p class="py-6"></p>
+            <button
+              id="start-btn"
+              class="btn btn-success hover:text-white hover:scale-125"
+            >
+              <i class="fa-solid fa-gamepad"></i>Start Game
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <main id="play-ground" class="hidden">
+      <div class="w-11/12 mx-auto">
+        <h2 class="text-xl text-center italic">Game Started</h2>
+        <h2
+          id="pc-command"
+          class="text-xl text-center bg-slate-50 max-w-md mx-auto p-5"
+        ></h2>
+        <form
+          id="guessing-form"
+          class="flex items-center justify-center mx-auto flex-col max-w-md"
+        >
+          <input
+            class="block border-0 border-b-2 outline-none mx-auto rounded my-10 text-2xl py-3 px-1 text-center"
+            id="num-input"
+            type="number"
+            name="number"
+            required
+          />
+
+          <button id="btn-check" disabled class="btn btn-success btn-outline">
+            Check
+          </button>
+        </form>
+
+        <div class="bg-green-200 my-10 p-5">
+          <h2
+            class="text-center text-xl font-bold uppercase text-green-400 mb-2"
+          >
+            My Recent Guess
+          </h2>
+          <div
+            id="recent-guess"
+            class="flex gap-10 justify-center flex-wrap"
+          ></div>
+        </div>
+        <div class="flex justify-center mt-5">
+          <button id="quit-btn" class="btn">I want to Quit</button>
+        </div>
+      </div>
+    </main>
+
+    <script src="scripts/common.js"></script>
+    <script src="scripts/index.js"></script>
+  </body>
+</html>
