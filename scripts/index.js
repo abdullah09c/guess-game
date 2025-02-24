@@ -67,7 +67,7 @@ const success = () => {
   level++;
   point += 100;
   rangeMax *= 10;
-  life = 10;
+  life = 100;
   Swal.fire({
     title: `Yahoo the Number is ${randomNumber} . You win 100 Points`,
     text: "Let's Play Another Level",
